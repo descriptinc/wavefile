@@ -25,6 +25,25 @@ declare module wavefile {
      */
     chunkSize: number;
     /**
+     * The byte where the data chunk begins
+     * @type {number}
+     */
+    head: number;
+    /**
+     * Raw details of the data format
+     * @type {!Object<string, *>}
+     */
+    dataType: {
+      /** @type {number} */
+      bits: number;
+      /** @type {boolean} */
+      fp: boolean;
+      /** @type {boolean} */
+      signed: boolean;
+      /** @type {boolean} */
+      be: boolean;
+    };
+    /**
      * The format.
      * Always 'WAVE'.
      * @type {string}
