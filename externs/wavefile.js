@@ -45,6 +45,25 @@ WaveFile.prototype.container = '';
  */
 WaveFile.prototype.chunkSize = 0;
 /**
+ * The byte where the data chunk begins
+ * @type {number}
+ */
+WaveFile.prototype.head = 0;
+/**
+ * Raw details of the data format
+ * @type {!Object<string, *>}
+ */
+WaveFile.prototype.dataType = {
+  /** @type {number} */
+  bits: 0,
+  /** @type {boolean} */
+  fp: false,
+  /** @type {boolean} */
+  signed: true,
+  /** @type {boolean} */
+  be: false
+};
+/**
  * The format.
  * Always WAVE.
  * @type {string}
@@ -286,6 +305,20 @@ WaveFile.prototype.LIST = [
     ]
   }
 ];
+/**
+ * The data of the signature
+ * @type {?Object<string, *>}
+ */
+WaveFile.prototype.signature = {
+  /** @type {string} */
+  chunkId: '',
+  /** @type {number} */
+  chunkSize: 0,
+  /** @type {string} */
+  format: '',
+  /** @type {?Array<Object>} */
+  subChunks: []
+};
 /**
  * The data of the junk chunk.
  * @type {!Object<string, *>}
