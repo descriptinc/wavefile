@@ -7,6 +7,15 @@ export = wavefile;
 
 declare module wavefile {
 
+  type SubChunk = {
+    chunkId?: string;
+    chunkSize?: number;
+    chunkData?: {
+      start?: number;
+      end?: number;
+    };
+  }
+
   class WaveFile {
 
     /**
@@ -43,6 +52,14 @@ declare module wavefile {
       /** @type {boolean} */
       be: boolean;
     };
+
+    signature?: {
+      chunkId: string;
+      chunkSize: number;
+      format: string;
+      subChunks: SubChunk[];
+    };
+
     /**
      * The format.
      * Always 'WAVE'.

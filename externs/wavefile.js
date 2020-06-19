@@ -306,6 +306,20 @@ WaveFile.prototype.LIST = [
   }
 ];
 /**
+ * The data of the signature
+ * @type {?Object<string, *>}
+ */
+WaveFile.prototype.signature = {
+  /** @type {string} */
+  chunkId: '',
+  /** @type {number} */
+  chunkSize: 0,
+  /** @type {string} */
+  format: '',
+  /** @type {?Array<Object>} */
+  subChunks: []
+};
+/**
  * The data of the junk chunk.
  * @type {!Object<string, *>}
  */
